@@ -1,0 +1,54 @@
+.cart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre los items */
+  overflow-y: auto; /* Activa el scroll si es necesario */
+  max-height: 100%; /* Evita que supere la altura del contenedor */
+  flex-grow: 1; /* Asegura que crezca ocupando el espacio disponible */
+  scrollbar-gutter: stable; /* Evita que el scroll se superponga al contenido */
+  padding-right: 10px; /* Añade un padding para evitar que el scroll se superponga al contenido */
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.product-row-sellpoint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-information-left-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 50%;
+  gap: 20px;
+}
+
+.product-information-right-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+  gap: 20px;
+}
+
+.product-information-left-container input {
+  border-radius: 5px;
+  border: 2px solid #9a9a9a;
+  width: 70px;
+  text-align: center;
+  height: 50px;
+}
+
+.product-cell-sellpoint .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

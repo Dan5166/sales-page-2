@@ -1,0 +1,212 @@
+.header-container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 84px;
+  color: #545555;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 3px 0 #ccc;
+  z-index: 1;
+}
+
+.header-container-without-submenu {
+  height: 42px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px;
+}
+
+.sellpoint-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  background-color: #f8f8f8;
+  padding: 0 20px;
+  box-shadow: 0 3px 3px 0 #ccc;
+}
+
+.sellpoint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+}
+
+.btn-open-menu {
+  font-size: 12px;
+  cursor: pointer;
+  color: #a699a6;
+  border-radius: 5px;
+  border: 2px solid #ffb38a;
+  padding: 5px;
+  display: flex;
+  gap: 5px;
+  background-color: "#ffffff";
+}
+
+.btn-open-menu.active {
+  background-color: #ffb38a;
+}
+
+.btn-open-menu i {
+  color: #ffbc98;
+}
+
+.submenu-links {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 34px;
+  left: 20;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 4px solid #ffb38a;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Make sure modal is above other content */
+  width: 200px; /* Adjust width as needed */
+  gap: 10px;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 5px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.user-links {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  height: 100%;
+  padding: 0 20px;
+  z-index: 1;
+  gap: 7px;
+}
+
+.user-links .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-links .user-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 600;
+  max-width: 100px;
+}
+
+.user-links .user-info p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sellpoint-user-links {
+  gap: 7px;
+  width: 30px;
+}
+
+.submenu-item:hover {
+  color: #ffb38a;
+}
+
+.header-container-without-submenu {
+  height: 42px;
+}
+
+.logo {
+  width: 280px;
+}
+
+.logo img {
+  height: 100%; /* Ajusta la altura del logo a la del header */
+  object-fit: contain; /* Evita la deformación de la imagen */
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 100px;
+  box-shadow: 0px 2px 0px 0px #ffb38a;
+  z-index: 1;
+}
+
+.links a {
+  padding: 0 17px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+.links a:hover {
+  background-color: #ffd4bd;
+  color: #ffffff;
+}
+
+.links a.active {
+  background-color: #ffb38a;
+  color: #ffffff;
+}
+
+.submenu {
+  height: 42px;
+  color: #545555;
+  padding: 0 20px;
+  font-size: 14px;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.submenu .menu-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 100px;
+}
+
+.submenu .menu-list a {
+  padding: 0 17px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+.submenu .menu-list a:hover {
+  background-color: #ffd4bd;
+  color: #ffffff;
+}
+
+.submenu .menu-list a.active {
+  background-color: #ffb38a;
+  color: #ffffff;
+}

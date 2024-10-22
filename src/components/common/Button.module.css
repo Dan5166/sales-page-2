@@ -1,0 +1,186 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000;
+  --primary-color: #33add6;
+  --secondary-color: #f5f5f5;
+  --cancel-color: #a9a9a9;
+  --hover-primary-color: #1f98b4;
+  --hover-secondary-color: #e8e8e8;
+  --icon-color: #0099cc;
+  --question-color: #999999;
+  --search-color: #333;
+  --tab-button-color: #606060;
+  --alert-color: #ff5c1a;
+  --alert-color-hover: #cccccc;
+}
+
+[data-theme="dark"] {
+  --bg-color: #333;
+  --text-color: #fff;
+  --primary-color: #33add6;
+  --secondary-color: #f5f5f5;
+  --cancel-color: #a9a9a9;
+  --hover-primary-color: #1f98b4;
+  --hover-secondary-color: #e8e8e8;
+  --icon-color: #0099cc;
+  --question-color: #999999;
+  --search-color: #333;
+  --tab-button-color: #545555;
+  --alert-color: #ff5c1a;
+  --alert-color-hover: #cccccc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btnMargin {
+  margin-top: 0px;
+}
+
+.btnHelp {
+  background: var(--alert-color);
+  padding: 0 7px;
+  color: var(--bg-color);
+  height: 25.2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 42px;
+  cursor: pointer;
+  border: none;
+}
+
+.btnPrimary {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+.btnSecondary {
+  background-color: var(--secondary-color);
+  color: var(--search-color);
+}
+
+.btnCancel {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  border: 1px solid var(--cancel-color);
+}
+
+/* Shape */
+
+.roundButton {
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  width: 20px; /* Asegúrate de que el width y el height sean iguales */
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundBorderedButton {
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  width: 20px; /* Asegúrate de que el width y el height sean iguales */
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roundPrimaryButton {
+  padding: 0;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  width: 22px; /* Asegúrate de que el width y el height sean iguales */
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btnBasicShape {
+  margin-top: 10px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.onlyIconButton {
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  width: 20px; /* Asegúrate de que el width y el height sean iguales */
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconText {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.likeASelect {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid var(--alert-color-hover);
+  background-color: transparent;
+  color: var(--search-color);
+  cursor: pointer;
+}
+
+.btnOnlyBordered {
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+/* Color */
+
+.btnProductDetail {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btnQuestion {
+  background-color: var(--bg-color);
+  border: 2px solid var(--question-color);
+  color: var(--question-color);
+}
+
+.btnSearch {
+  color: var(--search-color);
+  border: none;
+}
+
+.btnTabButton {
+  border: 2px solid var(--tab-button-color);
+  color: var(--tab-button-color);
+}
