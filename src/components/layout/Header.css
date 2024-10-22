@@ -134,11 +134,22 @@
 
 .logo {
   width: 280px;
+  color: #ff5c1a;
+  font-size: 18px;
 }
 
-.logo img {
-  height: 100%; /* Ajusta la altura del logo a la del header */
-  object-fit: contain; /* Evita la deformación de la imagen */
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo p {
+  font-weight: 600;
+}
+
+.logo i {
+  font-size: 22px;
 }
 
 .links {

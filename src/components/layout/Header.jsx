@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import SettingsModal from "../common/modals/SettingsModal";
-import logo from "../../assets/bsale-logo.png";
 import "./Header.css";
 import Button from "../common/Button";
 
@@ -18,11 +17,18 @@ export const Header = () => {
   const isActive = (path) => (location.pathname === path ? "active" : "");
 
   return (
-    <div className={isSubmenuEnabled ? "header-container" : "header-container header-container-without-submenu"}>
+    <div
+      className={
+        isSubmenuEnabled
+          ? "header-container"
+          : "header-container header-container-without-submenu"
+      }
+    >
       <header className="header">
         <div className="logo">
           <Link to="/sales" className={isActive("/sellpoint")}>
-            <img src={logo} alt="Logo" style={{ width: "100px" }} />
+            <i className="fa-solid fa-store"></i>
+            <p>RappyPan</p>
           </Link>
         </div>
         <div className="links">
@@ -60,20 +66,18 @@ export const Header = () => {
       </header>
 
       {/* Submenu */}
-      {
-        isSubmenuEnabled && (
-          <header className="header submenu">
-            <div className="menu-list">
-              <Link to="/reception" className={isActive("/recepcion")}>
-                Recepción
-              </Link>
-              <Link to="/consumption" className={isActive("/consumo")}>
-                Consumo
-              </Link>
-            </div>
-          </header>
-        )
-      }
+      {isSubmenuEnabled && (
+        <header className="header submenu">
+          <div className="menu-list">
+            <Link to="/reception" className={isActive("/recepcion")}>
+              Recepción
+            </Link>
+            <Link to="/consumption" className={isActive("/consumo")}>
+              Consumo
+            </Link>
+          </div>
+        </header>
+      )}
     </div>
   );
 };
@@ -140,7 +144,8 @@ export const SellpointHeader = () => {
         </div>
         <div className="logo">
           <Link to="/sales">
-            <img src={logo} alt="Logo" style={{ width: "100px" }} />
+            <i className="fa-solid fa-store"></i>
+            <p>RappyPan</p>
           </Link>
         </div>
         <div
