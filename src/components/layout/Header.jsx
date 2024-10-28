@@ -3,11 +3,13 @@ import { useLocation, Link } from "react-router-dom";
 import SettingsModal from "../common/modals/SettingsModal";
 import "./Header.css";
 import Button from "../common/Button";
+import { useAuth } from "../../context/AuthContext";
 
-export const Header = ({ submenuList }) => {
+export const Header = ({ submenuList=[] }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const location = useLocation(); // Obtiene la ruta actual
   const [isSubmenuEnabled, setSubmenuEnabled] = useState(true);
+  const { logout } = useAuth();
 
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
@@ -57,7 +59,7 @@ export const Header = ({ submenuList }) => {
               className="fa-solid fa-circle-user"
               style={{ fontSize: "25px" }}
             ></i>
-            <div className="user-info">
+            <div className="user-info" onClick={logout}>
               <p>Nombre de usuario</p>
               <p>Casa</p>
             </div>

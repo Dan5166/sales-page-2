@@ -192,13 +192,7 @@
   display: flex;
   justify-content: center;
   background-color: #ffffff;
-}
-
-.submenu {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100%;
 }
 
 .submenu-link {
