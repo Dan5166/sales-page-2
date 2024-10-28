@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-import Button from "../../common/Button";
-import { StockContext } from "../../../context/StockContext";
+import Button from "../../../common/Button";
+import { StockContext } from "../../../../context/StockContext";
 
 const StockForm = ({toggleContainerClasses, containerStates, products}) => {
   // const [containerStates, setContainerStates] = useState({ left: true, right: false });

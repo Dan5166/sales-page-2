@@ -87,6 +87,7 @@
   padding: 5px;
   cursor: pointer;
   gap: 5px;
+  width: 200px;
 }
 
 .user-links {
@@ -193,15 +194,14 @@
   background-color: #ffffff;
 }
 
-.submenu .menu-list {
+.submenu {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 0 100px;
 }
 
-.submenu .menu-list a {
+.submenu-link {
   padding: 0 17px;
   height: 100%;
   display: flex;
@@ -212,12 +212,12 @@
   text-overflow: ellipsis;
 }
 
-.submenu .menu-list a:hover {
+.submenu-link:hover {
   background-color: #ffd4bd;
   color: #ffffff;
 }
 
-.submenu .menu-list a.active {
+.submenu-link.active {
   background-color: #ffb38a;
   color: #ffffff;
 }

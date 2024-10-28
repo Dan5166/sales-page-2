@@ -219,3 +219,69 @@
   border: none;
   border-bottom: 1px dashed #000;
 }
+
+/* StockOverview section */
+.stock-overview {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f3f4f5;
+  padding: 50px;
+  padding-bottom: 30px;
+  padding-top: 104px;
+}
+
+.stock-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  background-color: #ffffff;
+  overflow: auto;
+  padding: 10px;
+  position: relative;
+}
+
+.stock-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.tabla-stock {
+  height: calc(100% - 30%);
+  overflow: auto;
+}
+
+
+/* Pagination */
+.pagination {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 1000; /* Asegura que quede encima de otros elementos */
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 50px;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: white;
+}
+
+.pagination button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

@@ -3,7 +3,7 @@ import StockForm from "./leftContainer/StockForm";
 import ProductDetailsForm from "./rightContainer/ProductDetailsForm";
 import "./StockMain.css";
 
-const StockMain = () => {
+const AddStock = () => {
     const [containerStates, setContainerStates] = useState({ left: true, right: false });
     const [products, setProducts] = useState([]);
 
@@ -24,4 +24,4 @@ const StockMain = () => {
   );
 };
 
-export default StockMain;
+export default AddStock;

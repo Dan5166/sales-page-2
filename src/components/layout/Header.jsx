@@ -4,7 +4,7 @@ import SettingsModal from "../common/modals/SettingsModal";
 import "./Header.css";
 import Button from "../common/Button";
 
-export const Header = () => {
+export const Header = ({ submenuList }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const location = useLocation(); // Obtiene la ruta actual
   const [isSubmenuEnabled, setSubmenuEnabled] = useState(true);
@@ -68,14 +68,11 @@ export const Header = () => {
       {/* Submenu */}
       {isSubmenuEnabled && (
         <header className="header submenu">
-          <div className="menu-list">
-            <Link to="/reception" className={isActive("/recepcion")}>
-              Recepción
-            </Link>
-            <Link to="/consumption" className={isActive("/consumo")}>
-              Consumo
-            </Link>
-          </div>
+          {submenuList.map((item, index) => (
+            <div key={index} onClick={item.action} className={item.active ? "submenu-link active" : "submenu-link"}>
+              {item.name}
+            </div>
+          ))}
         </header>
       )}
     </div>

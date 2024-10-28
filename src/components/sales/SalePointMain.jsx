@@ -6,7 +6,7 @@ import "./SalePointMain.css";
 import ProductInfoModal from "../common/modals/ProductInfoModal";
 
 const cartAPI = [
-  ];
+];
 
 const SalePointMain = () => {
   const [cart, setCart] = useState(cartAPI);

@@ -1,13 +1,16 @@
 import { Header } from "../components/layout/Header";
-import StockForm from "../components/stock/leftContainer/StockForm";
-import ProductDetailsForm from "../components/stock/rightContainer/ProductDetailsForm";
-import StockMain from "../components/stock/StockMain";
+import AddStock from "../components/stock/addStock/AddStock";
+import { useState } from "react";
+import StockOverview from "../components/stock/stockOverview/StockOverview";
 
 const Stock = () => {
+  const [stockView, setStockView] = useState('addStock');
+
   return (
     <section className="stock">
-        <Header />
-        <StockMain />
+        <Header submenuList={[{ name: 'Agregar stock', action: () => setStockView('addStock') }, { name: 'Ver stock', action: () => setStockView('stockOverview') }]} />
+        {stockView === 'addStock' && <AddStock />}
+        {stockView === 'stockOverview' && <StockOverview />}
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Button from '../../common/Button';
-import { StockContext } from '../../../context/StockContext';
+import Button from '../../../common/Button';
+import { StockContext } from '../../../../context/StockContext';
 
 const ProductDetailsForm = ({toggleContainerClasses, containerStates, anadirProducto}) => {
   const { addProduct } = useContext(StockContext); // Obtiene la función addProduct del contexto
