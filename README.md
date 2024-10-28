@@ -1,6 +1,6 @@
 # Dev Installation
 1. Install NodeJS
-2. Go into the project folder "/stockV2"
+2. Go into the project folder
 3. Install the Node Modules
    ``` npm install ```
 4. Into the project folder run the development server
