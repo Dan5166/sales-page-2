@@ -5,13 +5,13 @@ import Drafts from "./tabs/Drafts";
 import { StockContext } from "../../../context/StockContext";
 
 const Helper = ({ handleCartChange, cart, searchTerm, handleSearch, drafts, handleClienteChangeText }) => {
-  const { products } = useContext(StockContext);
-  
+  const { products, fetchProducts } = useContext(StockContext);
+  const [stock, setStock] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState("featured");
-  const [stock, setStock] = useState(products);
 
+  // Manejo del carrito
   const handleAddToCart = (product) => {
-    // Si el producto ya esta en el carrito, aumentar la cantidad
     const newCart = [...cart];
     const index = newCart.findIndex((item) => item.producto_id === product.producto_id);
     if (index !== -1) {
@@ -22,45 +22,97 @@ const Helper = ({ handleCartChange, cart, searchTerm, handleSearch, drafts, hand
     handleCartChange(newCart);
   };
 
+  // Obtener productos al montar el componente
   useEffect(() => {
-    setStock(products);
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const productsOb = products; // Llamada al contexto
+        setStock(products);
+      } catch (error) {
+        console.error("Error al obtener productos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
   }, [products]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   return (
     <div className="helper">
+      {/* Título dinámico basado en la pestaña activa */}
       <div className="title">
-        {tab === "featured" && (
-          <i className="fa-solid fa-star"></i>)}
-        {tab === "drafts" && (
-          <i className="fa-solid fa-file"></i>)}
-        {tab === "products" && (
-          <i className="fa-solid fa-table-cells"></i>)}
-        {tab === "featured" && (
-          <p>Destacados y mas Vendidos</p>)}
-        {tab === "drafts" && (
-          <p>Borradores de Venta</p>)}
-        {tab === "products" && (
-          <p>Productos/Servicios</p>)}
+        {tab === "featured" && <><i className="fa-solid fa-star"></i><p>Destacados y más Vendidos</p></>}
+        {tab === "drafts" && <><i className="fa-solid fa-file"></i><p>Borradores de Venta</p></>}
+        {tab === "products" && <><i className="fa-solid fa-table-cells"></i><p>Productos/Servicios</p></>}
       </div>
+
+      {/* Barra de búsqueda */}
       <div className="searchBar">
-        <input type="text" placeholder="Buscar" value={searchTerm} onChange={(e) => handleSearch(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Buscar"
+          value={searchTerm}
+          onChange={(e) => handleSearch(e.target.value)}
+        />
         <Button type="productDetail" iconClass="fa-solid fa-search" />
       </div>
+
+      {/* Loader o contenido basado en la pestaña */}
       <div className="product-list-container">
-        {tab === "featured" && (
-          <Products stock={stock} type="featured" handleAddToCart={handleAddToCart} searchTerm={searchTerm} />
-        )}
-        {tab === "drafts" && (
-          <Drafts drafts={drafts} handleCartChange={handleCartChange} cart={cart} handleClienteChangeText={handleClienteChangeText} />
-        )}
-        {tab === "products" && (
-          <Products stock={stock} type="products" handleAddToCart={handleAddToCart} searchTerm={searchTerm} />
+        {loading ? (
+          <div className="loader">Cargando productos...</div>
+        ) : (
+          <>
+            {tab === "featured" && (
+              <Products
+                stock={stock}
+                type="featured"
+                handleAddToCart={handleAddToCart}
+                searchTerm={searchTerm}
+              />
+            )}
+            {tab === "drafts" && (
+              <Drafts
+                drafts={drafts}
+                handleCartChange={handleCartChange}
+                cart={cart}
+                handleClienteChangeText={handleClienteChangeText}
+              />
+            )}
+            {tab === "products" && (
+              <Products
+                stock={stock}
+                type="products"
+                handleAddToCart={handleAddToCart}
+                searchTerm={searchTerm}
+              />
+            )}
+          </>
         )}
       </div>
+
+      {/* Pestañas de navegación */}
       <div className="tabs">
-        <Button type={tab === "featured" ? "productDetail" : "tabButton"} iconClass="fa-solid fa-star" onClick={() => setTab("featured")} />
-        <Button type={tab === "drafts" ? "productDetail" : "tabButton"} iconClass="fa-solid fa-file" onClick={() => setTab("drafts")} />
-        <Button type={tab === "products" ? "productDetail" : "tabButton"} iconClass="fa-solid fa-table-cells" onClick={() => setTab("products")} />
+        <Button
+          type={tab === "featured" ? "productDetail" : "tabButton"}
+          iconClass="fa-solid fa-star"
+          onClick={() => setTab("featured")}
+        />
+        <Button
+          type={tab === "drafts" ? "productDetail" : "tabButton"}
+          iconClass="fa-solid fa-file"
+          onClick={() => setTab("drafts")}
+        />
+        <Button
+          type={tab === "products" ? "productDetail" : "tabButton"}
+          iconClass="fa-solid fa-table-cells"
+          onClick={() => setTab("products")}
+        />
       </div>
     </div>
   );

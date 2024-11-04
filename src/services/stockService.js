@@ -1,15 +1,26 @@
 const BASE_URL = "http://190.114.254.155:8081/api";
 
 /**
- * Obtiene la lista de productos.
+ * Simula un retraso para probar loaders.
+ * @param {number} ms - Milisegundos de retraso.
+ * @returns {Promise<void>}
+ */
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Obtiene la lista de productos con retraso simulado.
  * @returns {Promise<Array>} - Lista de productos.
  */
 export const getProducts = async () => {
   try {
+    // Retrasar la petición para simular un loader
+    await delay(2000); // 2 segundos de retraso
+
     const response = await fetch(`${BASE_URL}/getProducts`);
     if (!response.ok) {
       throw new Error(`Error al obtener productos: ${response.statusText}`);
     }
+
     const products = await response.json();
     return products;
   } catch (error) {

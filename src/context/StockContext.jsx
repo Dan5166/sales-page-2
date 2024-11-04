@@ -10,20 +10,21 @@ export const StockProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      const productsList = await getProducts();
+      setProducts(productsList);
+    } catch (error) {
+      setError("Error al cargar productos");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Cargar productos al iniciar
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        const productsList = await getProducts();
-        setProducts(productsList);
-      } catch (error) {
-        setError("Error al cargar productos");
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchProducts();
   }, []);
 
@@ -53,7 +54,7 @@ export const StockProvider = ({ children }) => {
   };
 
   return (
-    <StockContext.Provider value={{ products, addProduct, loading, error, addProducts }}>
+    <StockContext.Provider value={{ products, addProduct, loading, error, addProducts, fetchProducts }}>
       {children}
     </StockContext.Provider>
   );

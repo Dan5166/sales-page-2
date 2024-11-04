@@ -22,11 +22,6 @@ const Products = ({ stock, handleAddToCart, searchTerm="" }) => {
     setFilteredStock(stock);
   }, [stock]);
 
-  useEffect(() => {
-    console.log("Loading: ", loading);
-  }, [loading]);
-  
-
   return (
     <div className="product-list">
       {filteredStock && filteredStock.length > 0 ? (
@@ -55,6 +50,7 @@ const Products = ({ stock, handleAddToCart, searchTerm="" }) => {
       ) : (
         <p>No se encontraron productos.</p>
       )}
+      <div className="loader"></div>
     </div>
   );
 };
